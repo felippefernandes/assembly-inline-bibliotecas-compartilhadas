@@ -1,0 +1,54 @@
+int e_logico (int x, int y){
+
+	int resultado = 0;
+
+	asm ("and %%ebx, %%eax\n\t"
+	  : "=a" (resultado)
+	  : "a" (x), "b" (y)
+
+	);
+
+	return resultado;
+}
+
+int ou_logico (int x, int y){
+
+	int resultado = 0;
+
+	asm ("or %%ebx, %%eax\n\t"
+	  : "=a" (resultado)
+	  : "a" (x), "b" (y)
+
+	);
+
+	return resultado;
+}
+
+int ou_exclusivo (int x, int y){
+
+	int resultado = 0;
+
+	asm ("xor %%ebx, %%eax\n\t"
+	  : "=a" (resultado)
+	  : "a" (x), "b" (y)
+
+	);
+
+	return resultado;
+}
+
+
+int nao_logico (int x){
+
+	int resultado = 0;
+
+	asm ("not %%eax\n\t"
+	  : "=a" (resultado)
+	  : "a" (x)
+
+	);
+
+	return resultado;
+}
+
+
